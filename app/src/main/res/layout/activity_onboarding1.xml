@@ -61,7 +61,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="108dp"
         android:contentDescription="@string/leftArrow_onBoarding1"
-        android:rotationY="-181"
+        android:rotationY="180"
         android:src="@drawable/arrow_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
