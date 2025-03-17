@@ -47,31 +47,22 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="58dp"
-        android:layout_marginBottom="260dp"
         android:text="@string/onboarding_message1"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_onBoarding1" />
 
     <ImageView
-        android:id="@+id/imageView_arrowLeft1"
-        android:layout_width="31dp"
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="671dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="108dp"
         android:contentDescription="@string/leftArrow_onBoarding1"
         android:src="@drawable/arrow_next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </ImageView>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
