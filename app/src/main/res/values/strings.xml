@@ -3,4 +3,5 @@
     <string name="onboarding_message1">We provide professional service at a friendly price</string>
     <string name="onboarding_icon1">onboarding_icon1</string>
     <string name="onboarding_button_text">Skip</string>
+    <string name="leftArrow_onBoarding1">leftArrow_onBoarding1</string>
 </resources>
