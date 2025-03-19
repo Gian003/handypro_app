@@ -32,8 +32,12 @@ android {
 }
 
 dependencies {
-    implementation("androidx.viewpager2:viewpager2:1.1.0")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation (libs.core.ktx)
+    implementation (libs.appcompat.v1700)
+    implementation (libs.material)
+    implementation (libs.constraintlayout.v214)
+    implementation (libs.viewpager2)
+    implementation (libs.recyclerview)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
