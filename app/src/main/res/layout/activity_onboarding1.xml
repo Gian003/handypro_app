@@ -21,7 +21,6 @@
         android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -36,7 +35,6 @@
         android:contentDescription="@string/onboarding_icon1"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/onboarding1" />
@@ -45,9 +43,7 @@
         android:id="@+id/textView"
         android:layout_width="278dp"
         android:layout_height="49dp"
-        android:layout_marginStart="57dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="58dp"
         android:text="@string/onboarding_message1"
         android:textAlignment="center"
         android:textSize="16sp"
