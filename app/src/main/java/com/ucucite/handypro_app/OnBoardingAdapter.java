@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // No binding needed as layouts are static
     }
 
     @Override
