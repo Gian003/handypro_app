@@ -7,4 +7,9 @@
     </style>
 
     <style name="Theme.Handypro_app" parent="Base.Theme.Handypro_app" />
+
+    <style name="Widget.MaterialComponents.TabLayout" parent="">
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
+    </style>
 </resources>
