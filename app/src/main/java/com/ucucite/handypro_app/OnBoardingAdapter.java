@@ -3,40 +3,48 @@ package com.ucucite.handypro_app;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-    public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.ViewHolder> {
-    private int[] layouts;
+import java.util.List;
 
-    public OnBoardingAdapter(int[] layouts) {
-        this.layouts = layouts;
+public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.OnBoardingViewHolder> {
+    private List<OnBoardingItem> items;
+
+    public OnBoardingAdapter(List<OnBoardingItem> items) {
+        this.items = items;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(layouts[viewType], parent, false);
-        return new ViewHolder(view);
+    public OnBoardingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_item, parent, false);
+        return new OnBoardingViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OnBoardingViewHolder holder, int position) {
+        OnBoardingItem item = items.get(position);
+        holder.imageView.setImageResource(item.getImage());
+        holder.textView.setText(item.getText());
     }
 
     @Override
     public int getItemCount() {
-        return layouts.length;
+        return items.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
+    static class OnBoardingViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView textView;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull View itemView) {
+        public OnBoardingViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.imageView);
+            textView = itemView.findViewById(R.id.textView);
         }
     }
 }
