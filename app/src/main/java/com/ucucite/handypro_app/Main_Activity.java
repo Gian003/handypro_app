@@ -1,10 +1,8 @@
 package com.ucucite.handypro_app;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -21,7 +19,7 @@ public class Main_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.onboarding_activity);
 
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
