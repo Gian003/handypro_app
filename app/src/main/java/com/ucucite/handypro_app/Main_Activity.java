@@ -1,6 +1,7 @@
 package com.ucucite.handypro_app;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -21,8 +22,8 @@ public class Main_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_activity);
 
-        ViewPager2 viewPager = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabLayout);
+        ViewPager2 viewPager = findViewById(R.id.viewPager_OnBoarding);
+        tabLayout = findViewById(R.id.tabLayout_Onboarding);
 
         // Set up onboarding adapter
         List<OnBoardingItem> items = new ArrayList<>();
@@ -54,6 +55,23 @@ public class Main_Activity extends AppCompatActivity {
                         }
                     }
                 }
+            }
+        });
+
+        ImageView BtnPrev = findViewById(R.id.Prev_Button_OnBoarding);
+        ImageView BtnNext = findViewById(R.id.Next_Button_OnBoarding);
+
+        BtnPrev.setOnClickListener(v -> {
+            int prevItem = viewPager.getCurrentItem() - 1;
+            if (prevItem < adapter.getItemCount()) {
+                viewPager.setCurrentItem(prevItem, true);
+            }
+        });
+
+        BtnNext.setOnClickListener(v -> {
+            int nextItem = viewPager.getCurrentItem() + 1;
+            if (nextItem >= 0) {
+                viewPager.setCurrentItem(nextItem, true);
             }
         });
     }

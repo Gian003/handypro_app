@@ -43,8 +43,8 @@ public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.On
 
         public OnBoardingViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
+            imageView = itemView.findViewById(R.id.imageView_OnBoarding);
+            textView = itemView.findViewById(R.id.textView_OnBoarding);
         }
     }
 }

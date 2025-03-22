@@ -9,7 +9,7 @@
     tools:context=".Main_Activity">
 
     <Button
-        android:id="@+id/button_onboarding"
+        android:id="@+id/button_OnBoarding_skip"
         android:layout_width="117dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -22,17 +22,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPager_OnBoarding"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout_Onboarding"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="33dp" />
 
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/tabLayout_Onboarding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -53,18 +53,18 @@
         app:tabMode="fixed" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Next_Button_OnBoarding"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/Arrow_onBoarding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager_OnBoarding"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/Prev_Button_OnBoarding"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         android:contentDescription="@string/Arrow_onBoarding"
         android:rotationY="180"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager_OnBoarding"
         app:srcCompat="@drawable/arrow_next" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
