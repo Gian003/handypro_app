@@ -3,7 +3,7 @@
     <string name="onboarding_message1">We provide professional service at a friendly price</string>
     <string name="onboarding_icon1">onboarding_icon!</string>
     <string name="onboarding_button_text">Skip</string>
-    <string name="leftArrow_onBoarding1">leftArrow_onBoarding!</string>
+    <string name="Arrow_onBoarding">Arrow_onBoarding</string>
     <string name="indicator">navigation indicator</string>
     <string name="tab_text_Onboarding">Onboarding tab</string>
 </resources>
