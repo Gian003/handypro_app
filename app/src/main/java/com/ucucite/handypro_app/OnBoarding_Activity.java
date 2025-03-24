@@ -1,5 +1,6 @@
 package com.ucucite.handypro_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Main_Activity extends AppCompatActivity {
+public class OnBoarding_Activity extends AppCompatActivity {
 
     private TabLayout tabLayout;
 
@@ -27,7 +28,6 @@ public class Main_Activity extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.viewPager_OnBoarding);
         tabLayout = findViewById(R.id.tabLayout_Onboarding);
 
-        // Set up onboarding adapter
         List<OnBoardingItem> items = new ArrayList<>();
         items.add(new OnBoardingItem(R.drawable.onboarding1,"We provide professional service at a friendly price."));
         items.add(new OnBoardingItem(R.drawable.onboarding2,"Deliver expert service with reliability and care to every home"));
@@ -63,6 +63,7 @@ public class Main_Activity extends AppCompatActivity {
         ImageView BtnPrev = findViewById(R.id.Prev_Button_OnBoarding);
         ImageView BtnNext = findViewById(R.id.Next_Button_OnBoarding);
 
+        Button skipButton = findViewById(R.id.button_OnBoarding_skip);
         Button button = findViewById(R.id.OnBoarding_Button);
 
         BtnPrev.setAlpha(.5f);
@@ -106,6 +107,26 @@ public class Main_Activity extends AppCompatActivity {
             int nextItem = viewPager.getCurrentItem() + 1;
             if (nextItem >= 0) {
                 viewPager.setCurrentItem(nextItem,  true);
+            }
+        });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
+                startActivity(intent);
+
+                finish();
+            }
+        });
+
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
+                startActivity(intent);
+
+                finish();
             }
         });
     }
