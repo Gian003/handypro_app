@@ -6,4 +6,5 @@
     <string name="Arrow_onBoarding">Arrow_onBoarding</string>
     <string name="indicator">navigation indicator</string>
     <string name="tab_text_Onboarding">Onboarding tab</string>
+    <string name="Onboarding_Button">Continue</string>
 </resources>
