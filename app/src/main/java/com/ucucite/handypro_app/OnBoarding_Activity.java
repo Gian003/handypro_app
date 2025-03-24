@@ -110,24 +110,18 @@ public class OnBoarding_Activity extends AppCompatActivity {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
-                startActivity(intent);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
+            startActivity(intent);
 
-                finish();
-            }
+            finish();
         });
 
-        skipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
-                startActivity(intent);
+        /* skipButton.setOnClickListener(v -> {
+            Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
+            startActivity(intent);
 
-                finish();
-            }
-        });
+            finish();
+        });*/
     }
 }
