@@ -6,7 +6,7 @@
     android:paddingStart="15dp"
     android:paddingTop="15dp"
     android:paddingEnd="15dp"
-    tools:context=".Main_Activity">
+    tools:context=".OnBoarding_Activity">
 
     <Button
         android:id="@+id/button_OnBoarding_skip"
