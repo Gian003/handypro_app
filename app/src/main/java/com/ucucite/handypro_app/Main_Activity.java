@@ -1,6 +1,8 @@
 package com.ucucite.handypro_app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +30,8 @@ public class Main_Activity extends AppCompatActivity {
         // Set up onboarding adapter
         List<OnBoardingItem> items = new ArrayList<>();
         items.add(new OnBoardingItem(R.drawable.onboarding1,"We provide professional service at a friendly price."));
-        items.add(new OnBoardingItem(R.drawable.onboarding2,"Onboarding 2"));
-        items.add(new OnBoardingItem(R.drawable.onboarding3, "Onboarding 3"));
+        items.add(new OnBoardingItem(R.drawable.onboarding2,"Deliver expert service with reliability and care to every home"));
+        items.add(new OnBoardingItem(R.drawable.onboarding3, "Book your service, relax, and enjoy a spotless home! "));
 
         OnBoardingAdapter adapter = new OnBoardingAdapter(items);
         viewPager.setAdapter(adapter);
@@ -61,6 +63,38 @@ public class Main_Activity extends AppCompatActivity {
         ImageView BtnPrev = findViewById(R.id.Prev_Button_OnBoarding);
         ImageView BtnNext = findViewById(R.id.Next_Button_OnBoarding);
 
+        Button button = findViewById(R.id.OnBoarding_Button);
+
+        BtnPrev.setAlpha(.5f);
+        BtnPrev.setEnabled(false);
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
+                if (position == 0) {
+                    BtnPrev.setAlpha(.5f);
+                    BtnPrev.setEnabled(false);
+                    button.setVisibility(View.INVISIBLE);
+                } else {
+                    BtnPrev.setAlpha(1f);
+                    BtnPrev.setEnabled(true);
+                    button.setVisibility(View.INVISIBLE);
+                }
+
+                if (position == 2) {
+                    BtnNext.setAlpha(.5f);
+                    BtnNext.setEnabled(false);
+                    button.setVisibility(View.VISIBLE);
+                } else {
+                    BtnNext.setAlpha(1f);
+                    BtnNext.setEnabled(true);
+                    button.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
         BtnPrev.setOnClickListener(v -> {
             int prevItem = viewPager.getCurrentItem() - 1;
             if (prevItem < adapter.getItemCount()) {
@@ -71,7 +105,7 @@ public class Main_Activity extends AppCompatActivity {
         BtnNext.setOnClickListener(v -> {
             int nextItem = viewPager.getCurrentItem() + 1;
             if (nextItem >= 0) {
-                viewPager.setCurrentItem(nextItem, true);
+                viewPager.setCurrentItem(nextItem,  true);
             }
         });
     }
