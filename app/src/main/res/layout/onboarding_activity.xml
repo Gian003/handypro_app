@@ -8,19 +8,6 @@
     android:paddingEnd="15dp"
     tools:context=".OnBoarding_Activity">
 
-    <Button
-        android:id="@+id/button_OnBoarding_skip"
-        android:layout_width="117dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        android:drawableEnd="@drawable/quill_skip"
-        android:gravity="center"
-        android:text="@string/onboarding_button_text"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager_OnBoarding"
         android:layout_width="match_parent"
@@ -51,6 +38,19 @@
         app:tabIndicator="@null"
         app:tabIndicatorHeight="0dp"
         app:tabMode="fixed" />
+
+    <Button
+        android:id="@+id/button_OnBoarding_skip"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:drawableEnd="@drawable/quill_skip"
+        android:gravity="center"
+        android:text="@string/onboarding_button_text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/Next_Button_OnBoarding"
@@ -83,7 +83,7 @@
         android:backgroundTint="@color/light_blue"
         android:contentDescription="@string/Onboarding_Button"
         android:text="@string/Onboarding_Button"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

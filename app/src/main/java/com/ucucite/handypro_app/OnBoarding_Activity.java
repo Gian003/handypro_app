@@ -64,7 +64,7 @@ public class OnBoarding_Activity extends AppCompatActivity {
         ImageView BtnNext = findViewById(R.id.Next_Button_OnBoarding);
 
         Button skipButton = findViewById(R.id.button_OnBoarding_skip);
-        Button button = findViewById(R.id.OnBoarding_Button);
+        Button Continue_button = findViewById(R.id.OnBoarding_Button);
 
         BtnPrev.setAlpha(.5f);
         BtnPrev.setEnabled(false);
@@ -77,21 +77,21 @@ public class OnBoarding_Activity extends AppCompatActivity {
                 if (position == 0) {
                     BtnPrev.setAlpha(.5f);
                     BtnPrev.setEnabled(false);
-                    button.setVisibility(View.INVISIBLE);
+                    Continue_button.setVisibility(View.INVISIBLE);
                 } else {
                     BtnPrev.setAlpha(1f);
                     BtnPrev.setEnabled(true);
-                    button.setVisibility(View.INVISIBLE);
+                    Continue_button.setVisibility(View.INVISIBLE);
                 }
 
                 if (position == 2) {
                     BtnNext.setAlpha(.5f);
                     BtnNext.setEnabled(false);
-                    button.setVisibility(View.VISIBLE);
+                    Continue_button.setVisibility(View.VISIBLE);
                 } else {
                     BtnNext.setAlpha(1f);
                     BtnNext.setEnabled(true);
-                    button.setVisibility(View.INVISIBLE);
+                    Continue_button.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -110,18 +110,13 @@ public class OnBoarding_Activity extends AppCompatActivity {
             }
         });
 
-        button.setOnClickListener(v -> {
+        View.OnClickListener goToLogin= v -> {
             Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
             startActivity(intent);
-
             finish();
-        });
+        };
 
-        /* skipButton.setOnClickListener(v -> {
-            Intent intent = new Intent(OnBoarding_Activity.this, Login_Activity.class);
-            startActivity(intent);
-
-            finish();
-        });*/
+        skipButton.setOnClickListener(goToLogin);
+        Continue_button.setOnClickListener(goToLogin);
     }
 }
