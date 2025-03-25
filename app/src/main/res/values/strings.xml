@@ -1,4 +1,5 @@
 <resources>
+    <!-- OnBoarding Activity -->
     <string name="app_name">Handypro_app</string>
     <string name="onboarding_message1">We provide professional service at a friendly price</string>
     <string name="onboarding_icon1">onboarding_icon!</string>
@@ -7,4 +8,12 @@
     <string name="indicator">navigation indicator</string>
     <string name="tab_text_Onboarding">Onboarding tab</string>
     <string name="Onboarding_Button">Continue</string>
+
+    <!-- Login Activity -->
+    <string name="Login_text">Log In</string>
+    <string name="Login_Email_input">Enter your Email</string>
+    <string name="Login_Password_input">Enter your Password</string>
+    <string name="Login_Button_String">Log In</string>
+    <string name="LogIn_Option">Or Log In with</string>
+    <string name="Facebook_textButton">Facebook</string>
 </resources>
