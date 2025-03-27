@@ -14,7 +14,10 @@
     <string name="Login_Email_input">Enter your Email</string>
     <string name="Login_Password_input">Enter your Password</string>
     <string name="Login_Button_String">Log In</string>
+    <string name="Forgot_Password"><u>Forgot your Password?</u></string>
     <string name="LogIn_Option">Or Log In with</string>
     <string name="Facebook_textButton">Facebook</string>
     <string name="Google_textButton">Google</string>
+    <string name="SignUp_Text">Don\'t have an account?</string>
+    <string name="SignUp_Button"><u>Sign Up</u></string>"
 </resources>
