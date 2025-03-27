@@ -4,13 +4,10 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="Theme.Handypro_app" parent="Base.Theme.Handypro_app" />
-    
-    <style name="Theme.Handypro_app.DayNight" parent="Theme.Handypro_app">
-        <item name="android:windowBackground">@color/white</item>
-    </style>
 
     <style name="Widget.MaterialComponents.TabLayout" parent="">
         <item name="tabIndicatorColor">@android:color/transparent</item>
