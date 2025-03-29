@@ -1,6 +1,6 @@
 <resources>
     <!-- OnBoarding Activity -->
-    <string name="app_name">Handypro_app</string>
+    <string name="app_name">Handypro</string>
     <string name="onboarding_message1">We provide professional service at a friendly price</string>
     <string name="onboarding_icon1">onboarding_icon!</string>
     <string name="onboarding_button_text">Skip</string>
@@ -18,6 +18,16 @@
     <string name="LogIn_Option">Or Log In with</string>
     <string name="Facebook_textButton">Facebook</string>
     <string name="Google_textButton">Google</string>
-    <string name="SignUp_Text">Don\'t have an account?</string>
-    <string name="SignUp_Button"><u>Sign Up</u></string>"
+    <string name="LogIn_Text">Don\'t have an account?</string>
+    <string name="LogIn_Button"><u>Sign Up</u></string>
+
+    <!-- Sign Up Activity -->
+    <string name="SignUp_text">Create your Account</string>
+    <string name="SignUp_FName_Text">First Name</string>
+    <string name="SignUp_LName_Text">Last Name</string>
+    <string name="SignUp_Email_Text">Enter your Email</string>
+    <string name="SignUp_Number_Text">Enter your Phone Number</string>
+    <string name="SignUp_Password_Text">Enter your Password</string>
+    <string name="SignUp_ConfirmPassword_Text">Confirm your Password</string>
+    <string name="SignUp_Terms_and_Conditions">I have read and agree to the Terms and Conditions</string>
 </resources>

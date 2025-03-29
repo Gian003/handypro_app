@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LogIn_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center">
@@ -42,7 +43,13 @@
             android:hint="@string/Login_Email_input"
             android:inputType="textEmailAddress"
             android:textSize="14sp"
-            android:textStyle="normal"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="1dp"
             tools:layout_editor_absoluteX="51dp"
             tools:layout_editor_absoluteY="211dp" />
 
@@ -52,6 +59,7 @@
         android:id="@+id/inputLayout_Login_Password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="30dp"
         app:boxCornerRadiusBottomStart="30dp"
@@ -59,7 +67,6 @@
         app:boxCornerRadiusTopStart="30dp"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidth="1dp"
-        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_Login_Email">
@@ -72,7 +79,13 @@
             android:hint="@string/Login_Password_input"
             android:inputType="textPassword"
             android:textSize="14sp"
-            android:textStyle="normal"/>
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="1dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -121,8 +134,8 @@
         android:text="@string/Facebook_textButton"
         android:textColor="@color/black"
         app:icon="@drawable/facebook_color"
-        app:iconSize="24dp"
         app:iconGravity="textStart"
+        app:iconSize="24dp"
         app:iconTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -156,19 +169,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="52dp"
-        android:text="@string/SignUp_Text"
+        android:text="@string/LogIn_Text"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialButton2" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/SignUp_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="76dp"
-        android:text="@string/SignUp_Button"
+        android:text="@string/LogIn_Button"
         android:textColor="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
