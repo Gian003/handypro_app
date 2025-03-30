@@ -10,7 +10,7 @@
     <string name="Onboarding_Button">Continue</string>
 
     <!-- Login Activity -->
-    <string name="Login_text">Log In</string>
+    <string name="Login_text_Intro">Log In</string>
     <string name="Login_Email_input">Enter your Email</string>
     <string name="Login_Password_input">Enter your Password</string>
     <string name="Login_Button_String">Log In</string>
@@ -19,15 +19,18 @@
     <string name="Facebook_textButton">Facebook</string>
     <string name="Google_textButton">Google</string>
     <string name="LogIn_Text">Don\'t have an account?</string>
-    <string name="LogIn_Button"><u>Sign Up</u></string>
+    <string name="SignUp_Button"><u>Sign Up</u></string>
 
     <!-- Sign Up Activity -->
-    <string name="SignUp_text">Create your Account</string>
+    <string name="SignUp_text_Intro">Create your Account</string>
     <string name="SignUp_FName_Text">First Name</string>
     <string name="SignUp_LName_Text">Last Name</string>
-    <string name="SignUp_Email_Text">Enter your Email</string>
-    <string name="SignUp_Number_Text">Enter your Phone Number</string>
-    <string name="SignUp_Password_Text">Enter your Password</string>
+    <string name="SignUp_Email_Text">Email</string>
+    <string name="SignUp_Number_Text">Phone Number</string>
+    <string name="SignUp_Password_Text">Password</string>
     <string name="SignUp_ConfirmPassword_Text">Confirm your Password</string>
     <string name="SignUp_Terms_and_Conditions">I have read and agree to the Terms and Conditions</string>
+    <string name="SignUp_Btn">Create Account</string>
+    <string name="SignUp_Text">Already have an account?</string>
+    <string name="LogIn_Button"><u>Log In</u></string>
 </resources>

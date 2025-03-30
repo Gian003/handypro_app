@@ -5,33 +5,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".SignUp_Activity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="@string/SignUp_text"
+        android:layout_marginTop="76dp"
+        android:text="@string/SignUp_text_Intro"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="150dp"
+        android:layout_width="125dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="24dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
@@ -41,27 +45,24 @@
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_FName_Text"
             android:textSize="14sp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="97dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        android:layout_width="150dp"
+        android:layout_width="125dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,57 +74,47 @@
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_LName_Text"
             android:textSize="14sp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="700dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
-        android:layout_width="325dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_Email_Text"
-            android:textSize="14sp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout5"
-        android:layout_width="325dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
@@ -132,29 +123,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_Number_Text"
-            android:textSize="14sp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
-        android:layout_width="325dp"
-        android:layout_height="70dp"
+        android:id="@+id/textInputLayout4"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:gravity="center"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,49 +146,82 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/SignUp_Password_Text"
+            android:layout_height="wrap_content"
             android:textSize="14sp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            android:hint="@string/SignUp_Password_Text"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout7"
-        android:layout_width="325dp"
-        android:layout_height="100dp"
+        android:id="@+id/textInputLayout6"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:gravity="center"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/input_color"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeWidth="0dp"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_ConfirmPassword_Text"
-            android:textSize="14sp"
-            android:background="@android:color/transparent"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="1dp" />
+            android:inputType="textPassword"
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:text="@string/SignUp_Terms_and_Conditions"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+
+    <Button
+        android:id="@+id/button_LogIn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/light_blue"
+        android:text="@string/SignUp_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/SignUp_Text"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_LogIn" />
+
+    <TextView
+        android:id="@+id/LogIn_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/LogIn_Button"
+        android:textColor="@color/light_blue"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/button_LogIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
