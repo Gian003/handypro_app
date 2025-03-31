@@ -33,4 +33,11 @@
     <string name="SignUp_Btn">Create Account</string>
     <string name="SignUp_Text">Already have an account?</string>
     <string name="LogIn_Button"><u>Log In</u></string>
+    
+    <!-- Verify OTP Activity -->
+    <string name="VerifyOTP_text_Intro">Verify Code</string>"
+    <string name="VerifyOTP_text_Instructions_number">Please enter the 6-digit code we just sent to your phone number </string>
+    <string name="VerifyOTP_text_Instructions_email">Please enter the 6-digit code we just sent to your email</string>
+    <string name="VerifyOTP_fill">OTP fill</string>
+    <string name="VerifyOTP_Btn">Verify</string>
 </resources>
