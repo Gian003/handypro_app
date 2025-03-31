@@ -2,7 +2,8 @@
 
     <!-- Error HandLer -->
     <string name="Invalid_User">Invalid password or Email</string>
-    
+    <string name="Invalid_Code">Invalid Code, please check again</string>
+
     <!-- OnBoarding Activity -->
     <string name="app_name">Handypro</string>
     <string name="onboarding_message1">We provide professional service at a friendly price</string>
