@@ -23,7 +23,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="15dp"
         android:textColorHint="@color/black"
@@ -49,7 +49,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:textColorHint="@color/black"
@@ -75,7 +75,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="none"
@@ -96,7 +96,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout5"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="none"
@@ -117,44 +117,46 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.ucucite.handypro_app.CustomEditText
+            android:id="@+id/Password_Initial_Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:hint="@string/SignUp_Password_Text"
             android:autofillHints="password"
             android:inputType="textPassword"
-            android:background="@drawable/login_signup_inputformat"/>
+            android:background="@drawable/login_signup_inputformat"
+            android:drawableEnd="@drawable/pass_visibility_off"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.ucucite.handypro_app.CustomEditText
+            android:id="@+id/Password_Confirm_Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_ConfirmPassword_Text"
             android:inputType="textPassword"
             android:textSize="14sp"
-            android:background="@drawable/login_signup_inputformat"/>
+            android:background="@drawable/login_signup_inputformat"
+            android:drawableEnd="@drawable/pass_visibility_off"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -199,6 +201,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="36dp"
         android:text="@string/LogIn_Button"
+        android:textSize="14sp"
         android:textColor="@color/light_blue"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/button_LogIn" />
