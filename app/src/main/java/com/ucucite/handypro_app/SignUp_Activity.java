@@ -15,14 +15,18 @@ public class SignUp_Activity extends AppCompatActivity {
 
         TextView LogIn_btn = findViewById(R.id.LogIn_Btn);
 
+        //intent to go to login activity
         LogIn_btn.setOnClickListener(v -> {
             Intent intent = new Intent(SignUp_Activity.this, Login_Activity.class);
             startActivity(intent);
         });
 
+
+        //passing xml id CustomEditText to java object to then be handled by PassVisibilityHandler
         CustomEditText InitialPassword = findViewById(R.id.Password_Initial_Input);
         CustomEditText ConfirmPassword = findViewById(R.id.Password_Confirm_Input);
 
+        //password visibility toggle from PassVisibilityHandler class
         PassVisibilityHandler.setUpPasswordVisibilityToggle(InitialPassword, true);
         PassVisibilityHandler.setUpPasswordVisibilityToggle(ConfirmPassword, false);
     }

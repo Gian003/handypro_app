@@ -1,3 +1,5 @@
+//class for custom EdittextLayout with password visibility toggle
+
 package com.ucucite.handypro_app;
 
 import android.content.Context;

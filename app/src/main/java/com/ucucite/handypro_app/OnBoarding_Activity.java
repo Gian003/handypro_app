@@ -1,3 +1,5 @@
+//class to handle on boarding screen
+
 package com.ucucite.handypro_app;
 
 import android.content.Intent;
@@ -25,20 +27,25 @@ public class OnBoarding_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_activity);
 
+        //declaring variables for OnBoarding to take id from xml
         ViewPager2 viewPager = findViewById(R.id.viewPager_OnBoarding);
         tabLayout = findViewById(R.id.tabLayout_Onboarding);
 
+        //declared items for OnBoarding array handled by OnBoardingAdapter
         List<OnBoardingItem> items = new ArrayList<>();
         items.add(new OnBoardingItem(R.drawable.onboarding1,"We provide professional service at a friendly price."));
         items.add(new OnBoardingItem(R.drawable.onboarding2,"Deliver expert service with reliability and care to every home"));
         items.add(new OnBoardingItem(R.drawable.onboarding3, "Book your service, relax, and enjoy a spotless home! "));
 
+        //pass the items array to OnBoardingAdapter
         OnBoardingAdapter adapter = new OnBoardingAdapter(items);
         viewPager.setAdapter(adapter);
 
+        //setting up tab layout
         tabLayout.setSelectedTabIndicator(null);
         tabLayout.setTabRippleColor(null);
 
+        //setting up tab indicator
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             tab.setIcon(R.drawable.navigation_indicator_inactive);
         }).attach();

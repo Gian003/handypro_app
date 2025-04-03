@@ -14,6 +14,7 @@ public class Login_Activity extends AppCompatActivity {
 
         TextView SignUp_btn = findViewById(R.id.SignUp_Btn);
 
+        //intent to go to sign up activity
         SignUp_btn.setOnClickListener(v -> {
             Intent intent = new Intent(Login_Activity.this, SignUp_Activity.class);
             startActivity(intent);
@@ -21,6 +22,7 @@ public class Login_Activity extends AppCompatActivity {
 
         CustomEditText LogIN_Pass = findViewById(R.id.Login_PassInput);
 
+        //password visibility toggle from PassVisibilityHandler class
         PassVisibilityHandler.setUpPasswordVisibilityToggle(LogIN_Pass, true);
     }
 }
