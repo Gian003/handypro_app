@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp_Activity extends AppCompatActivity {
 
-    PassVisibilityHandler passVisibilityHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +23,8 @@ public class SignUp_Activity extends AppCompatActivity {
         CustomEditText InitialPassword = findViewById(R.id.Password_Initial_Input);
         CustomEditText ConfirmPassword = findViewById(R.id.Password_Confirm_Input);
 
-        passVisibilityHandler.setUpPasswordVisibilityToggle(InitialPassword, true);
-        passVisibilityHandler.setUpPasswordVisibilityToggle(ConfirmPassword, false);
+        PassVisibilityHandler.setUpPasswordVisibilityToggle(InitialPassword, true);
+        PassVisibilityHandler.setUpPasswordVisibilityToggle(ConfirmPassword, false);
     }
 
 }

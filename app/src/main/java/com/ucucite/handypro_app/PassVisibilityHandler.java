@@ -1,21 +1,23 @@
 package com.ucucite.handypro_app;
 
+import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
+import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class PassVisibilityHandler {
 
-public class PassVisibilityHandler extends AppCompatActivity {
+    private static boolean isPasswordVisible = false;
+    private static boolean isConfirmPasswordVisible = false;
 
-    private boolean isPasswordVisible = false;
-    private boolean isConfirmPasswordVisible = false;
-
-    public void setUpPasswordVisibilityToggle(CustomEditText passwordField, boolean isInitialPassword) {
+    public static void setUpPasswordVisibilityToggle(CustomEditText passwordField, boolean isInitialPassword) {
         passwordField.setOnTouchListener((v, event) -> {
             final int DRAWABLE_RIGHT = 2;
 
             if (event.getAction() == MotionEvent.ACTION_UP) {
-                if (passwordField.getCompoundDrawables()[DRAWABLE_RIGHT] != null) {
-                    if (event.getRawX() >= (passwordField.getRight() - passwordField.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                Drawable[] drawables = passwordField.getCompoundDrawables();
+
+                if (drawables[DRAWABLE_RIGHT] != null) {
+                    if (event.getRawX() >= (passwordField.getRight() - drawables[DRAWABLE_RIGHT].getBounds().width())) {
 
                         boolean isVisible = isInitialPassword ? isPasswordVisible : isConfirmPasswordVisible;
 
@@ -45,8 +47,6 @@ public class PassVisibilityHandler extends AppCompatActivity {
             return false;
         });
 
-        passwordField.setOnClickListener(v -> {
-
-        });
+        passwordField.setOnClickListener(View::performClick);
     }
 }
