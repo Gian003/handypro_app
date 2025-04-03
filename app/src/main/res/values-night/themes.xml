@@ -3,5 +3,14 @@
     <style name="Base.Theme.Handypro_app" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="Theme.Handypro_app" parent="Base.Theme.Handypro_app" />
+
+    <style name="Widget.MaterialComponents.TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
     </style>
 </resources>
