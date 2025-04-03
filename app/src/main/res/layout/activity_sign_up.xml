@@ -42,6 +42,7 @@
             android:inputType="textPersonName"
             android:textSize="14sp"
             android:background="@drawable/login_signup_inputformat"
+            android:imeOptions="actionNext"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="97dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,6 +69,7 @@
             android:inputType="textPersonName"
             android:textSize="14sp"
             android:background="@drawable/login_signup_inputformat"
+            android:imeOptions="actionNext"
             tools:layout_editor_absoluteX="157dp"
             tools:layout_editor_absoluteY="700dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -84,13 +86,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SignUp_EmailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_Email_Text"
             android:inputType="textEmailAddress"
             android:autofillHints="emailAddress"
             android:textSize="14sp"
-            android:background="@drawable/login_signup_inputformat"/>
+            android:background="@drawable/login_signup_inputformat"
+            android:imeOptions="actionNext"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -105,13 +109,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SignUp_NumberInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/SignUp_Number_Text"
             android:inputType="number"
             android:autofillHints="phone"
             android:textSize="14sp"
-            android:background="@drawable/login_signup_inputformat"/>
+            android:background="@drawable/login_signup_inputformat"
+            android:imeOptions="actionNext"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -134,7 +140,8 @@
             android:autofillHints="password"
             android:inputType="textPassword"
             android:background="@drawable/login_signup_inputformat"
-            android:drawableEnd="@drawable/pass_visibility_off"/>
+            android:drawableEnd="@drawable/pass_visibility_off"
+            android:imeOptions="actionNext"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +163,8 @@
             android:inputType="textPassword"
             android:textSize="14sp"
             android:background="@drawable/login_signup_inputformat"
-            android:drawableEnd="@drawable/pass_visibility_off"/>
+            android:drawableEnd="@drawable/pass_visibility_off"
+            android:imeOptions="actionDone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
