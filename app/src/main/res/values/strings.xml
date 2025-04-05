@@ -45,4 +45,9 @@
     <string name="VerifyOTP_text_Instructions_email">Please enter the 6-digit code we just sent to your email</string>
     <string name="VerifyOTP_fill">OTP fill</string>
     <string name="VerifyOTP_Btn">Verify</string>
+    
+    <!-- Home Activity -->
+    <string name="Home_Intro">What service do you need?</string>
+    <string name="Home_SearchBar_Text">Search for services…</string>
+    <string name="Home_SearchIcon">Search Icon</string>
 </resources>
