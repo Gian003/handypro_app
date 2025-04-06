@@ -39,10 +39,6 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
         return carouselItems.size();
     }
 
-    public void setAdapter(List<Carouselitem> carouselItems) {
-        this.carouselItems = carouselItems;
-    }
-
     static class CarouselViewHolder extends RecyclerView.ViewHolder {
         ImageView imageViewService;
         TextView textViewPromo;
