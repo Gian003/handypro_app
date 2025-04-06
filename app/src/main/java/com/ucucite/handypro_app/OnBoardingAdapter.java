@@ -21,7 +21,7 @@ public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.On
     @NonNull
     @Override
     public OnBoardingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.onboarding_item, parent, false);
         return new OnBoardingViewHolder(view);
     }
 
