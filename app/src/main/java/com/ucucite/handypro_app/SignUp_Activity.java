@@ -6,6 +6,7 @@ import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -94,6 +95,13 @@ public class SignUp_Activity extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+
+        //Create button for create account to got to home activity
+        Button CreateAccount_Btn = findViewById(R.id.button_CreateAccount);
+        CreateAccount_Btn.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUp_Activity.this, Home_Activity.class);
+            startActivity(intent);
         });
     }
 }
