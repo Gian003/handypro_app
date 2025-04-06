@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@drawable/login_signup_inputformat"
+        android:padding="15dp"
+        android:importantForAccessibility="yes">
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/searchview_icon"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/Home_SearchIcon"/>
+
+        <EditText
+            android:id="@+id/searchbar_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_regular"
+            android:textStyle="normal"
+            android:hint="@string/Home_SearchBar_Text"
+            android:textSize="14sp"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:autofillHints="name"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+</merge>
