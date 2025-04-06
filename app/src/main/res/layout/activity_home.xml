@@ -41,14 +41,14 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/Home_ViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="330dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="20dp"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customSearchView" />
 
