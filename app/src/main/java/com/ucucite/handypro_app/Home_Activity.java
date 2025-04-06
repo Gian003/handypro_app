@@ -15,6 +15,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +61,16 @@ public class Home_Activity extends AppCompatActivity {
         viewPager.setPageTransformer((page, position) -> {
             float scale = 1 - Math.abs(position) * 0.1f;
             page.setScaleX(scale);
+            page.setScaleY(scale);
+        });
+
+        TabLayout tabLayout = findViewById(R.id.Home_TabLayout);
+
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+        }).attach();
+
+        viewPager.setPageTransformer((page, position) -> {
+            float scale = 1 - Math.abs(position) * 0.1f;
             page.setScaleY(scale);
         });
     }

@@ -17,7 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="33dp" />
 
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_Onboarding"
         android:layout_width="wrap_content"
