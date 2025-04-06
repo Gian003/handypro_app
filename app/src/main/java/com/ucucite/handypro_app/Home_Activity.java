@@ -34,7 +34,7 @@ public class Home_Activity extends AppCompatActivity {
         carouselItems.add(new Carouselitem(R.drawable.offers_appliance_repair, "30% off", "Appliance Repair Service"));
 
         CarouselAdapter carouselAdapter = new CarouselAdapter(carouselItems);
-        carouselAdapter.setAdapter(carouselItems);
+        viewPager.setAdapter(carouselAdapter);
 
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
@@ -50,5 +50,15 @@ public class Home_Activity extends AppCompatActivity {
             }
         };
         handler.post(runnable);
+
+        viewPager.setClipChildren(false);
+        viewPager.setClipToPadding(false);
+        viewPager.setOffscreenPageLimit(3);
+
+        viewPager.setPageTransformer((page, position) -> {
+            float scale = 1 - Math.abs(position) * 0.1f;
+            page.setScaleX(scale);
+            page.setScaleY(scale);
+        });
     }
 }
