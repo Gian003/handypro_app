@@ -52,4 +52,8 @@
     <string name="Home_SearchIcon">Search Icon</string>
     <string name="Home_NotificationIcon">Notification Icon</string>
     <string name="Home_SearchBar_Close">Close Icon</string>
+    <string name="Home_Carousel_Image">Carousel Image</string>
+    <string name="Home_Carousel_Promo">20% off</string>
+    <string name="Home_Carousel_Service">Plumbing Service</string>
+    <string name="Home_Carousel_Button">View Details</string>"
 </resources>
