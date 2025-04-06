@@ -50,4 +50,6 @@
     <string name="Home_Intro">What service do you need?</string>
     <string name="Home_SearchBar_Text">Search for service…</string>
     <string name="Home_SearchIcon">Search Icon</string>
+    <string name="Home_NotificationIcon">Notification Icon</string>
+    <string name="Home_SearchBar_Close">Close Icon</string>
 </resources>
