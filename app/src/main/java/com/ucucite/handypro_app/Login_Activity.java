@@ -2,6 +2,7 @@ package com.ucucite.handypro_app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,5 +25,12 @@ public class Login_Activity extends AppCompatActivity {
 
         //password visibility toggle from PassVisibilityHandler class
         PassVisibilityHandler.setUpPasswordVisibilityToggle(LogIN_Pass, true);
+
+        //create button instance for login going to home activity
+        Button LogIn_btn = findViewById(R.id.button_LogIn);
+        LogIn_btn.setOnClickListener(v -> {
+            Intent intent = new Intent(Login_Activity.this, Home_Activity.class);
+            startActivity(intent);
+        });
     }
 }
