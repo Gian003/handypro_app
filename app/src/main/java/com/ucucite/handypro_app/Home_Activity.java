@@ -1,18 +1,10 @@
 package com.ucucite.handypro_app;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -20,8 +12,13 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Home_Activity extends AppCompatActivity {
+
+    private Handler handler = new Handler();
+    private Runnable runnable;
+    private int currentItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +27,7 @@ public class Home_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ViewPager2 viewPager = findViewById(R.id.Home_ViewPager);
+        TabLayout tabLayout = findViewById(R.id.Home_TabLayout);
 
         List<Carouselitem> carouselItems = new ArrayList<>();
         carouselItems.add(new Carouselitem(R.drawable.offers_plumbing, "20% off", "Plumbing Service"));
@@ -39,16 +37,18 @@ public class Home_Activity extends AppCompatActivity {
         CarouselAdapter carouselAdapter = new CarouselAdapter(carouselItems);
         viewPager.setAdapter(carouselAdapter);
 
-        Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            int currentItem = 0;
-
+        runnable = new Runnable() {
             @Override
             public void run() {
                 if (currentItem == carouselItems.size()) {
                     currentItem = 0;
                 }
-                viewPager.setCurrentItem(currentItem++, true);
+                viewPager.setCurrentItem(currentItem, true);
+                TabLayout.Tab tab = tabLayout.getTabAt(currentItem);
+                if (tab != null) {
+                    tab.select();
+                }
+                currentItem++;
                 handler.postDelayed(this, 3000);
             }
         };
@@ -56,22 +56,38 @@ public class Home_Activity extends AppCompatActivity {
 
         viewPager.setClipChildren(false);
         viewPager.setClipToPadding(false);
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(1);
 
         viewPager.setPageTransformer((page, position) -> {
-            float scale = 1 - Math.abs(position) * 0.1f;
-            page.setScaleX(scale);
-            page.setScaleY(scale);
+            float absPos = Math.abs(position);
+            page.setScaleX(1 - absPos * 0.1f);
+            page.setScaleY(1 - absPos * 0.1f);
+            page.setAlpha(1 - absPos * 0.1f);
         });
 
-        TabLayout tabLayout = findViewById(R.id.Home_TabLayout);
+        tabLayout.setSelectedTabIndicator(null);
+        tabLayout.setTabRippleColor(null);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            tab.setIcon(R.drawable.promo_indicator_default);
         }).attach();
 
-        viewPager.setPageTransformer((page, position) -> {
-            float scale = 1 - Math.abs(position) * 0.1f;
-            page.setScaleY(scale);
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                for (int i = 0; i < tabLayout.getTabCount(); i++) {
+                    TabLayout.Tab tab = tabLayout.getTabAt(i);
+                    if (tab != null) {
+                        if (i == position) {
+                            tab.setIcon(R.drawable.promo_indicator_selected);
+                            Objects.requireNonNull(tab.getIcon()).setTint(getResources().getColor(R.color.indicator_color));
+                        } else {
+                            tab.setIcon(R.drawable.promo_indicator_default);
+                        }
+                    }
+                }
+            }
         });
     }
 }
