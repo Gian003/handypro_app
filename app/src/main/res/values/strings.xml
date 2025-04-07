@@ -56,4 +56,6 @@
     <string name="Home_Carousel_Promo">20% off</string>
     <string name="Home_Carousel_Service">Plumbing Service</string>
     <string name="Home_Carousel_Button">View Details</string>"
+    <string name="Home_Service_Initial">Services</string>
+    <string name="Home_Service_SeeAll"><u>See All</u></string>
 </resources>
