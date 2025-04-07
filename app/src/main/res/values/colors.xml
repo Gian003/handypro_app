@@ -8,4 +8,5 @@
     <color name="light_light_grey">#D8DADC</color>
     <color name="facebook_blue">#1877f2</color>
     <color name="input_color">#ECEDEE</color>
+    <color name="indicator_color">#2B2C2B</color>
 </resources>
