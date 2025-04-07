@@ -26,7 +26,6 @@
         android:background="@android:color/transparent"
         app:tabIndicatorColor="@color/black"
         app:tabSelectedTextColor="@color/light_blue"
-        app:tabTextColor="@color/dark_grey"
         app:tabStyle="@style/Widget.MaterialComponents.TabLayout"
         app:tabRippleColor="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"

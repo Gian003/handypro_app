@@ -56,16 +56,39 @@
         android:id="@+id/Home_TabLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Home_ViewPager"
+        app:layout_constraintTop_toBottomOf="@id/Home_ViewPager"
         app:tabGravity="center"
-        app:tabIndicator="@drawable/carousel_tab_indicator"
-        app:tabIndicatorGravity="center"
-        app:tabIndicatorHeight="0dp"
-        app:tabRippleColor="@android:color/transparent" />
+        app:tabIndicator="@drawable/promo_indicator_selector"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="8dp"
+        app:tabMode="fixed" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/Home_Service_Initial"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Home_TabLayout" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/Home_Service_SeeAll"
+        android:textColor="@color/light_blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/Home_TabLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
