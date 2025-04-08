@@ -1,7 +1,11 @@
 package com.ucucite.handypro_app;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +23,23 @@ public class Home_Activity extends AppCompatActivity {
     private Handler handler = new Handler();
     private Runnable runnable;
     private int currentItem = 0;
+
+    private int dpToPx(int dp) {
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
+    }
+
+    private void animateTabWidth (View tabView, int fromWidth, int toWidth){
+        ValueAnimator animator = ValueAnimator.ofInt(fromWidth, toWidth);
+        animator.setDuration(250);
+        animator.addUpdateListener(animation -> {
+            int value = (int) animation.getAnimatedValue();
+            ViewGroup.LayoutParams params = tabView.getLayoutParams();
+            params.width = value;
+            tabView.setLayoutParams(params);
+        });
+        animator.start();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,24 +90,36 @@ public class Home_Activity extends AppCompatActivity {
         tabLayout.setTabRippleColor(null);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
-            tab.setIcon(R.drawable.promo_indicator_default);
+            View indicator = new View(this);
+            indicator.setBackgroundResource(R.drawable.promo_indicator_selector);
+            int size = dpToPx(8);
+            ViewGroup.LayoutParams  params = new ViewGroup.LayoutParams(size, dpToPx(8));
+            indicator.setLayoutParams(params);
+            tab.setCustomView(indicator);
         }).attach();
 
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                for (int i = 0; i < tabLayout.getTabCount(); i++) {
-                    TabLayout.Tab tab = tabLayout.getTabAt(i);
-                    if (tab != null) {
-                        if (i == position) {
-                            tab.setIcon(R.drawable.promo_indicator_selected);
-                            Objects.requireNonNull(tab.getIcon()).setTint(getResources().getColor(R.color.indicator_color));
-                        } else {
-                            tab.setIcon(R.drawable.promo_indicator_default);
-                        }
-                    }
+            public void onTabSelected(TabLayout.Tab tab) {
+                View view = tab.getCustomView();
+                if (view != null) {
+                    view.setSelected(true);
+                    animateTabWidth(view, dpToPx(8), dpToPx(40));
                 }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                View view = tab.getCustomView();
+                if (view != null) {
+                    view.setSelected(false);
+                    animateTabWidth(view, dpToPx(40), dpToPx(8));
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
     }
