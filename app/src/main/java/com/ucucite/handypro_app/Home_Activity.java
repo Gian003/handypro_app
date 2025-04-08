@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -122,5 +124,18 @@ public class Home_Activity extends AppCompatActivity {
 
             }
         });
+
+        // Set up the RecyclerView for Home Services
+        RecyclerView recyclerView = findViewById(R.id.Home_Layout_RecyclerView);
+        List<HomeServicesItem> homeServicesItems = new ArrayList<>();
+        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_housekeeping));
+        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_plumbing));
+        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_electrician));
+
+        HomeServicesAdapter homeServicesAdapter = new HomeServicesAdapter(homeServicesItems);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(homeServicesAdapter);
     }
 }
