@@ -57,5 +57,6 @@
     <string name="Home_Carousel_Service">Plumbing Service</string>
     <string name="Home_Carousel_Button">View Details</string>"
     <string name="Home_Service_Initial">Services</string>
-    <string name="Home_Service_SeeAll"><u>See All</u></string>
+    <string name="Home_Service_ViewAll"><u>View All</u></string>
+    <string name="Home_Service_Icon">Service Icon</string>
 </resources>
