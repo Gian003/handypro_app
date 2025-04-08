@@ -85,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/Forgot_Password"
         android:textColor="@color/light_blue"
         android:textSize="14sp"
