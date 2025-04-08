@@ -25,7 +25,7 @@ public class OnBoarding_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.onboarding_activity);
+        setContentView(R.layout.activity_onboarding);
 
         //declaring variables for OnBoarding to take id from xml
         ViewPager2 viewPager = findViewById(R.id.viewPager_OnBoarding);
