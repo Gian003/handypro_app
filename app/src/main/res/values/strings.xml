@@ -55,8 +55,19 @@
     <string name="Home_Carousel_Image">Carousel Image</string>
     <string name="Home_Carousel_Promo">20% off</string>
     <string name="Home_Carousel_Service">Plumbing Service</string>
-    <string name="Home_Carousel_Button">View Details</string>"
+    <string name="Home_Carousel_Button">View Details</string>
     <string name="Home_Service_Initial">Services</string>
-    <string name="Home_Service_ViewAll"><u>View All</u></string>
+    <string name="Home_ViewAll"><u>View All</u></string>
     <string name="Home_Service_Icon">Service Icon</string>
+    <string name="Home_Recc_Initial">Recommended</string>
+    <string name="Home_Recc_Image">Worker Image</string>
+    <string name="Home_Recc_Service">House Cleaning</string>
+    <string name="Home_Recc_Name">John Doe</string>"
+    <string name="Home_Recc_Rating">⭐ 4.8</string>
+    <string name="Home_Recc_Review">150 Reviews</string>"
+    <string name="Home_Recc_Price">₱ 700.00 - ₱ 1,000.00</string>
+    <string name="Home_Recc_Bookmark">Bookmark</string>
+    <string name="Home_Recc_Discount">20% off</string>
+    <string name="Home_Recc_Icon_Review">⭐ %1$s</string>
+    <string name="Home_Recc_text_Review">%1$d Reviews</string>
 </resources>
