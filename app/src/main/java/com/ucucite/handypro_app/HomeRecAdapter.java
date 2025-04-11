@@ -55,14 +55,14 @@ public class HomeRecAdapter extends RecyclerView.Adapter<HomeRecAdapter.ViewHold
         holder.service.setText(item.getService());
         holder.worker.setText(item.getWorker());
 
-        String ratingText = holder.itemView.getContext().getString(R.string.Home_Recc_Icon_Review, item.getRating());
+        String ratingText = holder.itemView.getContext().getString(R.string.Home_Recc_Icon_Rating, item.getRating());
         holder.rating.setText(ratingText);
 
         String reviewText = holder.itemView.getContext().getString(R.string.Home_Recc_text_Review, item.getReviews());
         holder.reviews.setText(reviewText);
 
-
-        holder.price.setText(String.valueOf(item.getPrice()));
+        String priceText = holder.itemView.getContext().getString(R.string.Home_Recc_text_Price, item.getPrice());
+        holder.price.setText(priceText);
 
         if (item.hasDiscount()) {
             holder.discount.setVisibility(View.VISIBLE);

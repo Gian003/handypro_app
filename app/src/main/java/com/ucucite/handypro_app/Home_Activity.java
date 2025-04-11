@@ -3,6 +3,7 @@ package com.ucucite.handypro_app;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,10 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Home_Activity extends AppCompatActivity {
 
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
     private int currentItem = 0;
 
@@ -126,7 +126,7 @@ public class Home_Activity extends AppCompatActivity {
         });
 
         // Set up the RecyclerView for Home Services
-        RecyclerView recyclerView = findViewById(R.id.Home_Layout_RecyclerView);
+        RecyclerView ServicesrecyclerView = findViewById(R.id.Home_Layout_RecyclerView);
         List<HomeServicesItem> homeServicesItems = new ArrayList<>();
         homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_housekeeping));
         homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_plumbing));
@@ -135,7 +135,19 @@ public class Home_Activity extends AppCompatActivity {
         HomeServicesAdapter homeServicesAdapter = new HomeServicesAdapter(homeServicesItems);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(homeServicesAdapter);
+        ServicesrecyclerView.setLayoutManager(linearLayoutManager);
+        ServicesrecyclerView.setAdapter(homeServicesAdapter);
+
+        // Set up the RecyclerView for Home Recommendations
+        RecyclerView ReccrecyclerView = findViewById(R.id.Home_Recc_RecyclerView);
+        List<HomeReccItem> homeReccItems = new ArrayList<>();
+        homeReccItems.add(new HomeReccItem(R.drawable.worker_housekeeping, "Housekeeping", "Jack Hinshelwood", 4.5, 120, 50.0, true));
+        homeReccItems.add(new HomeReccItem(R.drawable.worker_electrician, "Electrician", "Carlos Baleba", 4.8, 200, 75.0, false));
+        homeReccItems.add(new HomeReccItem(R.drawable.worker_moving__and_packing, "Moving & Packing", "Kylian Mbappe", 4.7, 150, 60.0, true));
+        homeReccItems.add(new HomeReccItem(R.drawable.worker_plumbing, "Plumbing", "Matt O'Riley", 4.9, 300, 80.0, false));
+
+        HomeRecAdapter homeRecAdapter = new HomeRecAdapter(homeReccItems);
+        ReccrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ReccrecyclerView.setAdapter(homeRecAdapter);
     }
 }
