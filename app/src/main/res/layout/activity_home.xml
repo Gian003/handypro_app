@@ -58,8 +58,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +68,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -137,11 +138,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
                 android:clipToPadding="false"
                 android:foregroundGravity="center_vertical"
                 android:overScrollMode="never"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:scrollbars="none"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
                 tools:layout_editor_absoluteX="0dp" />
@@ -185,8 +186,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Home_Recc_RecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:overScrollMode="never"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
