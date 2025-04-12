@@ -71,4 +71,9 @@
     <string name="Home_Recc_Icon_Rating">⭐ %1$.1f</string>
     <string name="Home_Recc_text_Review">%1$d Reviews</string>
     <string name="Home_Recc_text_Price">₱ %1$.2f</string>
+    <string name="Home_Nav_HomeIC">Home Icon</string>
+    <string name="Home_Nav_BookmarkIC">Bookmark Icon</string>
+    <string name="Home_Nav_MessageIC">Message Icon</string>
+    <string name="Home_Nav_ProfileIC">Profile Icon</string>
+    <string name="Home_Nav_Explore">Explore Icon</string>
 </resources>
