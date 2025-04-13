@@ -100,7 +100,7 @@ public class SignUp_Activity extends AppCompatActivity {
         //Create button for create account to got to home activity
         Button CreateAccount_Btn = findViewById(R.id.button_CreateAccount);
         CreateAccount_Btn.setOnClickListener(v -> {
-            Intent intent = new Intent(SignUp_Activity.this, Home_Activity.class);
+            Intent intent = new Intent(SignUp_Activity.this, MainActivity.class);
             startActivity(intent);
         });
     }

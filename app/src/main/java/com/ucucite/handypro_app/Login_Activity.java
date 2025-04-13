@@ -29,7 +29,7 @@ public class Login_Activity extends AppCompatActivity {
         //create button instance for login going to home activity
         Button LogIn_btn = findViewById(R.id.button_LogIn);
         LogIn_btn.setOnClickListener(v -> {
-            Intent intent = new Intent(Login_Activity.this, Home_Activity.class);
+            Intent intent = new Intent(Login_Activity.this, MainActivity.class);
             startActivity(intent);
         });
     }
