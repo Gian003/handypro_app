@@ -25,6 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
+        app:itemIconSize="32dp"
         app:itemActiveIndicatorStyle="@style/CustomActiveIndicator"
         app:itemIconTint="@color/nav_icon_color"
         app:labelVisibilityMode="unlabeled"
