@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment);
+                .replace(R.id.nav_host_fragment, fragment);
         if (addToBackStack) {
             transaction.addToBackStack(null);
         }
@@ -38,17 +38,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         BottomNavigationView bottomNav= findViewById(R.id.bottom_nav);
-        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
-                int id = item.getItemId();
-                if (id == R.id.nav_home_menu) {
-                    selectedFragment = new HomeFragment();
-                }
-                loadFragment(selectedFragment, true);
-                return true;
+        bottomNav.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            int id = item.getItemId();
+            if (id == R.id.nav_home_menu) {
+                selectedFragment = new HomeFragment();
             }
+            loadFragment(selectedFragment, true);
+            return true;
         });
     }
 }
