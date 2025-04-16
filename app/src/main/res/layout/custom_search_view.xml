@@ -6,7 +6,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@drawable/login_signup_inputformat"
+        android:background="@drawable/border_format_layout"
         android:padding="15dp"
         android:importantForAccessibility="yes">
 
