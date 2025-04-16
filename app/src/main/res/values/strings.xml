@@ -46,7 +46,7 @@
     <string name="VerifyOTP_fill">OTP fill</string>
     <string name="VerifyOTP_Btn">Verify</string>
 
-    <!-- Home Activity -->
+    <!-- Home Fragment -->
     <string name="Home_Intro">What service do you need?</string>
     <string name="Home_SearchBar_Text">Search for service…</string>
     <string name="Home_SearchIcon">Search Icon</string>
@@ -76,4 +76,8 @@
     <string name="Home_Nav_MessageIC">Message Icon</string>
     <string name="Home_Nav_ProfileIC">Profile Icon</string>
     <string name="Home_Nav_Explore">Explore Icon</string>
+
+    <!-- Explore Fragment -->
+    <string name="Explore_into">Explore</string>
+    <string name="Explore_button_filter">Filter</string>
 </resources>
