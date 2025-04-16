@@ -139,27 +139,27 @@ public class HomeFragment extends Fragment {
 
         // Set up the RecyclerView for Home Services
         RecyclerView servicesRecyclerView = view.findViewById(R.id.Home_Layout_RecyclerView);
-        List<HomeServicesItem> homeServicesItems = new ArrayList<>();
-        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_housekeeping));
-        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_plumbing));
-        homeServicesItems.add(new HomeServicesItem(R.drawable.home_services_ic_electrician));
+        List<CategoryServicesItem> categoryServicesItems = new ArrayList<>();
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_housekeeping));
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_plumbing));
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_electrician));
 
-        HomeServicesAdapter homeServicesAdapter = new HomeServicesAdapter(homeServicesItems);
+        CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         servicesRecyclerView.setLayoutManager(layoutManager);
-        servicesRecyclerView.setAdapter(homeServicesAdapter);
+        servicesRecyclerView.setAdapter(categoryServicesAdapter);
 
         // Set up the RecyclerView for Home Recommendations
         RecyclerView recRecyclerView = view.findViewById(R.id.Home_Recc_RecyclerView);
-        List<HomeReccItem> homeReccItems = new ArrayList<>();
-        homeReccItems.add(new HomeReccItem(R.drawable.worker_housekeeping, "Housekeeping", "Jack Hinshelwood", 4.5, 120, 50.0, true));
-        homeReccItems.add(new HomeReccItem(R.drawable.worker_electrician, "Electrician", "Carlos Baleba", 4.8, 200, 75.0, false));
-        homeReccItems.add(new HomeReccItem(R.drawable.worker_moving__and_packing, "Moving & Packing", "Kylian Mbappe", 4.7, 150, 60.0, true));
-        homeReccItems.add(new HomeReccItem(R.drawable.worker_plumbing, "Plumbing", "Matt O'Riley", 4.9, 300, 80.0, false));
+        List<ServicesItem> servicesItems = new ArrayList<>();
+        servicesItems.add(new ServicesItem(R.drawable.worker_housekeeping, "Housekeeping", "Jack Hinshelwood", 4.5, 120, 50.0, true));
+        servicesItems.add(new ServicesItem(R.drawable.worker_electrician, "Electrician", "Carlos Baleba", 4.8, 200, 75.0, false));
+        servicesItems.add(new ServicesItem(R.drawable.worker_moving__and_packing, "Moving & Packing", "Kylian Mbappe", 4.7, 150, 60.0, true));
+        servicesItems.add(new ServicesItem(R.drawable.worker_plumbing, "Plumbing", "Matt O'Riley", 4.9, 300, 80.0, false));
 
-        HomeRecAdapter homeRecAdapter = new HomeRecAdapter(homeReccItems);
+        ServicesAdapter servicesAdapter = new ServicesAdapter(servicesItems);
         recRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recRecyclerView.setAdapter(homeRecAdapter);
+        recRecyclerView.setAdapter(servicesAdapter);
     }
 
     // Clean up the handler callbacks when the view is destroyed to prevent memory leaks
