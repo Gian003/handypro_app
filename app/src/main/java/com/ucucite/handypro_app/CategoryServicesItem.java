@@ -1,9 +1,9 @@
 package com.ucucite.handypro_app;
 
-public class HomeServicesItem {
+public class CategoryServicesItem {
     private int image;
 
-    public HomeServicesItem(int image) {
+    public CategoryServicesItem(int image) {
         this.image = image;
     }
 

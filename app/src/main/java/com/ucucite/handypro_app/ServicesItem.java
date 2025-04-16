@@ -1,6 +1,6 @@
 package com.ucucite.handypro_app;
 
-public class HomeReccItem {
+public class ServicesItem {
     private int image;
     private String Service;
     private String worker;
@@ -9,7 +9,7 @@ public class HomeReccItem {
     private double Price;
     private boolean hasDiscount;
 
-    public HomeReccItem (int image, String Service, String worker, double rating, int reviews, double Price, boolean hasDiscount) {
+    public ServicesItem(int image, String Service, String worker, double rating, int reviews, double Price, boolean hasDiscount) {
         this.image = image;
         this.Service = Service;
         this.worker = worker;

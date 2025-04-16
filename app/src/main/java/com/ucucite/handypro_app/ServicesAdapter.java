@@ -10,11 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class HomeRecAdapter extends RecyclerView.Adapter<HomeRecAdapter.ViewHolder>{
+public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder>{
 
-    private List<HomeReccItem> homeReccItems;
+    private List<ServicesItem> servicesItems;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
@@ -37,20 +36,20 @@ public class HomeRecAdapter extends RecyclerView.Adapter<HomeRecAdapter.ViewHold
         }
     }
 
-    public HomeRecAdapter(List<HomeReccItem> homeReccItems) {
-        this.homeReccItems = homeReccItems;
+    public ServicesAdapter(List<ServicesItem> servicesItems) {
+        this.servicesItems = servicesItems;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_recc_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.services_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HomeReccItem item = homeReccItems.get(position);
+        ServicesItem item = servicesItems.get(position);
         holder.image.setImageResource(item.getImage());
         holder.service.setText(item.getService());
         holder.worker.setText(item.getWorker());
@@ -73,6 +72,6 @@ public class HomeRecAdapter extends RecyclerView.Adapter<HomeRecAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return homeReccItems.size();
+        return servicesItems.size();
     }
 }
