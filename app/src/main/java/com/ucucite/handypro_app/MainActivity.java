@@ -1,19 +1,13 @@
 package com.ucucite.handypro_app;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
 
         if (savedInstanceState == null) {
-            loadFragment(new HomeFragment(), false);
+            loadFragment(new FragmentHome(), false);
         }
 
         BottomNavigationView bottomNav= findViewById(R.id.bottom_nav);
@@ -42,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             int id = item.getItemId();
             if (id == R.id.nav_home_menu) {
-                selectedFragment = new HomeFragment();
+                selectedFragment = new FragmentHome();
             }
             loadFragment(selectedFragment, true);
             return true;
