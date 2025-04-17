@@ -10,7 +10,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
-        android:name="com.ucucite.handypro_app.HomeFragment"
+        android:name="com.ucucite.handypro_app.FragmentHome"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:tag="Fragment_Container"

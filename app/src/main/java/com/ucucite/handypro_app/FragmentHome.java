@@ -22,7 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class FragmentHome extends Fragment {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
@@ -140,9 +140,9 @@ public class HomeFragment extends Fragment {
         // Set up the RecyclerView for Home Services
         RecyclerView servicesRecyclerView = view.findViewById(R.id.Home_Layout_RecyclerView);
         List<CategoryServicesItem> categoryServicesItems = new ArrayList<>();
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_housekeeping));
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_plumbing));
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_electrician));
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_housekeeping, "Housekeeping"));
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_plumbing, "Plumbing"));
+        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_electrician, "Electrician"));
 
         CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
