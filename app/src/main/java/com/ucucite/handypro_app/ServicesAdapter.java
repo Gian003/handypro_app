@@ -74,4 +74,9 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
     public int getItemCount() {
         return servicesItems.size();
     }
+
+    public void filterList (List <ServicesItem> filteredList) {
+        servicesItems = filteredList;
+        notifyDataSetChanged();
+    }
 }
