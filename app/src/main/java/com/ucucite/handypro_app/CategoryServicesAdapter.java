@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,5 +57,16 @@ public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServic
     @Override
     public int getItemCount() {
         return categoryServicesItems.size();
+    }
+
+    public void filterList (List<CategoryServicesItem> filteredList) {
+        categoryServicesItems = filteredList;
+        notifyDataSetChanged();
+    }
+
+    public void updateData(List<CategoryServicesItem> newCategoryServicesItems) {
+        this.categoryServicesItems.clear();
+        this.categoryServicesItems.addAll(newCategoryServicesItems);
+        notifyDataSetChanged();
     }
 }

@@ -46,4 +46,5 @@ public class ServicesItem {
     public boolean hasDiscount() {
         return hasDiscount;
     }
+
 }

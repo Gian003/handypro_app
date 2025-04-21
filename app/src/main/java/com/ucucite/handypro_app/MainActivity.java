@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
             if (id == R.id.nav_home_menu) {
                 selectedFragment = new FragmentHome();
+            } else if (id == R.id.nav_explore_menu) {
+                selectedFragment = new FragmentExplore();
             }
             loadFragment(selectedFragment, true);
             return true;

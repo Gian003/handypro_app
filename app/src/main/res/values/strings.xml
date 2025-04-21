@@ -79,5 +79,15 @@
 
     <!-- Explore Fragment -->
     <string name="Explore_into">Explore</string>
-    <string name="Explore_button_filter">Filter</string>
+    <string name="Explore_filter_text">Filter</string>
+    <string name="Explore_closeIcon">Close</string>
+    <string name="Explore_bottom_sheet_text">Sort by</string>
+    <string name="Explore_radioButton_General">General</string>
+    <string name="Explore_radioButton_category">Category</string>
+    <string name="Explore_radioButton_ratingLtH">Ratings: Low to High</string>
+    <string name="Explore_radioButton_ratingHtL">Ratings: High to Low</string>
+    <string name="Explore_radioButton_reviews">Reviews</string>
+    <string name="Explore_radioButton_priceLtH">Price: Low to High</string>
+    <string name="Explore_radioButton_priceHtL">Price: High to Low</string>
+    <string name="Explore_bottom_sheet_apply">Apply</string>
 </resources>

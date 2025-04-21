@@ -19,6 +19,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class FragmentHome extends Fragment {
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
     private int currentItem = 0;
+    private ServicesAdapter servicesAdapter;
 
     // Convert dp to pixels
     private int dpToPx(int dp) {
@@ -45,6 +48,21 @@ public class FragmentHome extends Fragment {
             tabView.setLayoutParams(params);
         });
         animator.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+        currentItem = 0;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (runnable != null) {
+            handler.post(runnable);
+        }
     }
 
     // Inflate the fragment layout
@@ -75,7 +93,10 @@ public class FragmentHome extends Fragment {
         runnable = new Runnable() {
             @Override
             public void run() {
-                if (currentItem == carouselItems.size()) {
+                if (carouselItems.isEmpty()) {
+                    return;
+                }
+                if (currentItem >= carouselItems.size()) {
                     currentItem = 0;
                 }
                 viewPager.setCurrentItem(currentItem, true);
@@ -137,35 +158,34 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        // Set up the RecyclerView for Home Services
-        RecyclerView servicesRecyclerView = view.findViewById(R.id.Home_Layout_RecyclerView);
-        List<CategoryServicesItem> categoryServicesItems = new ArrayList<>();
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_housekeeping, "Housekeeping"));
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_plumbing, "Plumbing"));
-        categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_electrician, "Electrician"));
-
-        CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        servicesRecyclerView.setLayoutManager(layoutManager);
-        servicesRecyclerView.setAdapter(categoryServicesAdapter);
-
-        // Set up the RecyclerView for Home Recommendations
+        // Set up the RecyclerView for Home Recommendations Services
         RecyclerView recRecyclerView = view.findViewById(R.id.Home_Recc_RecyclerView);
-        List<ServicesItem> servicesItems = new ArrayList<>();
-        servicesItems.add(new ServicesItem(R.drawable.worker_housekeeping, "Housekeeping", "Jack Hinshelwood", 4.5, 120, 50.0, true));
-        servicesItems.add(new ServicesItem(R.drawable.worker_electrician, "Electrician", "Carlos Baleba", 4.8, 200, 75.0, false));
-        servicesItems.add(new ServicesItem(R.drawable.worker_moving__and_packing, "Moving & Packing", "Kylian Mbappe", 4.7, 150, 60.0, true));
-        servicesItems.add(new ServicesItem(R.drawable.worker_plumbing, "Plumbing", "Matt O'Riley", 4.9, 300, 80.0, false));
+        List<ServicesItem> servicesItems = ServiceDataList.getServicesItems();
+        servicesAdapter = new ServicesAdapter(servicesItems);
 
-        ServicesAdapter servicesAdapter = new ServicesAdapter(servicesItems);
         recRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recRecyclerView.setAdapter(servicesAdapter);
+
+        // Set up the RecyclerView for Home Categories for Services
+        RecyclerView categoriesRecyclerView = view.findViewById(R.id.Home_Layout_RecyclerView);
+        List<CategoryServicesItem> categoryServicesItems = ServiceDataList.getCategoryServicesItems();
+        categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems, categoryLabel -> {
+            List<ServicesItem> filteredCategoryItems = ServiceDataList.getSortedCategory(categoryLabel);
+            servicesAdapter.updateData(filteredCategoryItems);
+        });
+        categoriesRecyclerView.setAdapter(categoryServicesAdapter);
     }
 
     // Clean up the handler callbacks when the view is destroyed to prevent memory leaks
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        handler.removeCallbacks(runnable);
+        if (runnable != null) {
+            handler.removeCallbacks(runnable);
+            runnable = null;
+        }
+        currentItem = 0;
     }
 }

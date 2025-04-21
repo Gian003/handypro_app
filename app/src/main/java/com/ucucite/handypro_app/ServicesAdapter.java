@@ -79,4 +79,10 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         servicesItems = filteredList;
         notifyDataSetChanged();
     }
+
+    public void updateData(List<ServicesItem> newServicesItems) {
+        this.servicesItems.clear();
+        this.servicesItems.addAll(newServicesItems);
+        notifyDataSetChanged();
+    }
 }

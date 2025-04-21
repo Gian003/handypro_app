@@ -18,5 +18,4 @@
         android:src="@drawable/home_services_ic_housekeeping"
         android:contentDescription="@string/Home_Service_Icon"
         android:layout_gravity="center"/>
-
 </androidx.cardview.widget.CardView>
