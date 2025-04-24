@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    annotationProcessor(libs.room.compiler)
     implementation(libs.room.runtime)
     implementation(libs.lifecycle.livedata)
     implementation(libs.material.v1110)

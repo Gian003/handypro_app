@@ -11,6 +11,7 @@ material = "1.12.0"
 materialVersion = "1.12.0"
 activity = "1.10.1"
 recyclerview = "1.4.0"
+roomCompiler = "2.5.2"
 roomRuntime = "2.6.1"
 viewpager2 = "1.1.0"
 
@@ -25,6 +26,7 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycleLivedata" }
 material-v1110 = { module = "com.google.android.material:material", version.ref = "material" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+room-compiler = { module = "anroidx.room:room-compiler", version.ref = "roomCompiler" }
 room-runtime = { module = "anroidx.room:room-runtime", version.ref = "roomRuntime" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 
