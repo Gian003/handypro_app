@@ -32,6 +32,10 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.database)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime.android)
     annotationProcessor(libs.room.compiler)
     implementation(libs.room.runtime)
     implementation(libs.lifecycle.livedata)
