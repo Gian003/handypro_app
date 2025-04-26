@@ -7,24 +7,37 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder>{
+public class ServicesAdapter extends ListAdapter<ServiceEntity, ServicesAdapter.VH> {
 
-    private List<ServicesItem> servicesItems;
+    public ServicesAdapter() {
+        super(new DiffUtil.ItemCallback<ServiceEntity>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull ServiceEntity oldItem, @NonNull ServiceEntity newItem) {
+                return oldItem.id==newItem.id;
+            }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+            @Override
+            public boolean areContentsTheSame(@NonNull ServiceEntity oldItem, @NonNull ServiceEntity newItem) {
+                return oldItem.equals(newItem);
+            }
+        });
+    }
+
+    public static class VH extends RecyclerView.ViewHolder {
         ImageView image;
         TextView service;
         TextView worker;
         TextView rating;
         TextView reviews;
         TextView price;
-        TextView discount;
 
-        public ViewHolder(View itemView) {
+        public VH(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.worker_image);
             service = itemView.findViewById(R.id.worker_service);
@@ -32,57 +45,23 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
             rating = itemView.findViewById(R.id.worker_rating);
             reviews = itemView.findViewById(R.id.worker_review);
             price = itemView.findViewById(R.id.worker_price);
-            discount = itemView.findViewById(R.id.worker_discount);
         }
-    }
-
-    public ServicesAdapter(List<ServicesItem> servicesItems) {
-        this.servicesItems = servicesItems;
     }
 
     @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.services_item, parent, false);
-        return new ViewHolder(view);
+        return new VH(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ServicesItem item = servicesItems.get(position);
-        holder.image.setImageResource(item.getImage());
-        holder.service.setText(item.getService());
-        holder.worker.setText(item.getWorker());
-
-        String ratingText = holder.itemView.getContext().getString(R.string.Home_Recc_Icon_Rating, item.getRating());
-        holder.rating.setText(ratingText);
-
-        String reviewText = holder.itemView.getContext().getString(R.string.Home_Recc_text_Review, item.getReviews());
-        holder.reviews.setText(reviewText);
-
-        String priceText = holder.itemView.getContext().getString(R.string.Home_Recc_text_Price, item.getPrice());
-        holder.price.setText(priceText);
-
-        if (item.hasDiscount()) {
-            holder.discount.setVisibility(View.VISIBLE);
-        } else {
-            holder.discount.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return servicesItems.size();
-    }
-
-    public void filterList (List <ServicesItem> filteredList) {
-        servicesItems = filteredList;
-        notifyDataSetChanged();
-    }
-
-    public void updateData(List<ServicesItem> newServicesItems) {
-        this.servicesItems.clear();
-        this.servicesItems.addAll(newServicesItems);
-        notifyDataSetChanged();
+    public void onBindViewHolder(@NonNull VH holder, int position) {
+        ServiceEntity service = getItem(position);
+        holder.image.setImageResource(service.image);
+        holder.service.setText(service.service);
+        holder.worker.setText(service.worker);
+        holder.rating.setText(String.valueOf(service.rating));
+        holder.reviews.setText(String.valueOf(service.reviews));
+        holder.price.setText(String.valueOf(service.price));
     }
 }

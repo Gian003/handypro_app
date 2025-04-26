@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.lombok)
+    annotationProcessor(libs.lombok)
     implementation(libs.androidx.room.database)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.compiler)

@@ -2,6 +2,7 @@ package com.ucucite.handypro_app;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -25,4 +26,16 @@ public interface ServiceDAO {
     @Query("SELECT * FROM services ORDER BY reviews DESC") LiveData<List<ServiceEntity>> getSortedByReviewsDesc();
     @Query(("SELECT * FROM services ORDER BY price ASC")) LiveData<List<ServiceEntity>> getSortedByPrice();
     @Query("SELECT * FROM services ORDER BY price DESC") LiveData<List<ServiceEntity>> getSortedByPriceDesc();
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertService(ServiceEntity service);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertAll(List<ServiceEntity> services);
+
+    @Delete
+    void deleteService(ServiceEntity service);
+
+    @Query("DELETE FROM services")
+    void deleteAllServices();
 }
