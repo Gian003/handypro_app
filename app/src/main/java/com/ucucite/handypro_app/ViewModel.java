@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.List;
 
 public class ViewModel extends AndroidViewModel {
-    private ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
 
     public ViewModel(@NonNull Application application) {
         super(application);
