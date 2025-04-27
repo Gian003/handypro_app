@@ -9,30 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ucucite.handypro_app.CategoryServicesItem;
-
 import java.util.List;
 
 public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServicesAdapter.ViewHolder> {
 
     private List<CategoryServicesItem> categoryServicesItems;
-    private OnCategoryClickListener listener;
-
-    public CategoryServicesAdapter(List<CategoryServicesItem> categoryServicesItems, OnCategoryClickListener listener) {
-        this.categoryServicesItems = categoryServicesItems;
-        this.listener = listener;
-    }
+    private final OnCategoryClickListener listener;
 
     public interface OnCategoryClickListener {
         void onCategoryClick(String categoryLabel);
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView icon;
-        public ViewHolder(View itemView) {
-            super(itemView);
-            icon = itemView.findViewById(R.id.home_services_icon);
-        }
+    public CategoryServicesAdapter(List<CategoryServicesItem> categoryServicesItems, OnCategoryClickListener listener) {
+        this.categoryServicesItems = categoryServicesItems;
+        this.listener = listener;
     }
 
     @NonNull
@@ -45,9 +35,9 @@ public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServic
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         CategoryServicesItem item = categoryServicesItems.get(position);
-        holder.icon.setImageResource(item.getImage());
+        holder.categoryIcon.setImageResource(item.getImage());
 
-        holder.icon.setOnClickListener(v -> {
+        holder.categoryIcon.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onCategoryClick(item.getLabel());
             }
@@ -59,14 +49,26 @@ public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServic
         return categoryServicesItems.size();
     }
 
-    public void filterList (List<CategoryServicesItem> filteredList) {
-        categoryServicesItems = filteredList;
-        notifyDataSetChanged();
-    }
+    class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView categoryIcon;
+        TextView categoryLabel;
 
-    public void updateData(List<CategoryServicesItem> newCategoryServicesItems) {
-        this.categoryServicesItems.clear();
-        this.categoryServicesItems.addAll(newCategoryServicesItems);
-        notifyDataSetChanged();
+        ViewHolder (View itemView) {
+            super(itemView);
+            categoryIcon = itemView.findViewById(R.id.category_icon);
+            categoryLabel = itemView.findViewById(R.id.category_label);
+
+            itemView.setOnClickListener(v -> {
+                int position = getBindingAdapterPosition();
+                if (position != RecyclerView.NO_POSITION && listener != null) {
+                    listener.onCategoryClick(categoryServicesItems.get(position).getLabel());
+                }
+            });
+        }
+
+        void bind(CategoryServicesItem item) {
+            categoryIcon.setImageResource(item.getImage());
+            categoryLabel.setText(item.getLabel());
+        }
     }
 }

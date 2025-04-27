@@ -58,7 +58,8 @@
     <string name="Home_Carousel_Button">View Details</string>
     <string name="Home_Service_Initial">Services</string>
     <string name="Home_ViewAll"><u>View All</u></string>
-    <string name="Home_Service_Icon">Service Icon</string>
+    <string name="Home_Category_Icon">Service Icon</string>
+    <string name="Home_Category_Text">Housekeeping</string>
     <string name="Home_Recc_Initial">Recommended</string>
     <string name="Home_Recc_Image">Worker Image</string>
     <string name="Home_Recc_Service">House Cleaning</string>

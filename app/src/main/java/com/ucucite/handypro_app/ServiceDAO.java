@@ -12,30 +12,48 @@ import java.util.List;
 @Dao
 public interface ServiceDAO {
 
+    // Insert a single ServiceEntity
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(ServiceEntity e);
+    void insert(ServiceEntity service);
 
+    // Insert multiple ServiceEntities at once
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<ServiceEntity> services);
+
+    // Get all services ordered by latest added
     @Query("SELECT * FROM services ORDER BY id DESC")
     LiveData<List<ServiceEntity>> getAllServices();
 
-    //Sorting
-    @Query("SELECT * FROM services WHERE service = :categoryLabel") LiveData<List<ServiceEntity>> getSortedCategory(String categoryLabel);
-    @Query("SELECT * FROM services ORDER BY rating ASC") LiveData<List<ServiceEntity>> getSortedByRating();
-    @Query("SELECT * FROM services ORDER BY rating DESC") LiveData<List<ServiceEntity>> getSortedByRatingDesc();
-    @Query("SELECT * FROM services ORDER BY reviews ASC") LiveData<List<ServiceEntity>> getSortedByReviews();
-    @Query("SELECT * FROM services ORDER BY reviews DESC") LiveData<List<ServiceEntity>> getSortedByReviewsDesc();
-    @Query(("SELECT * FROM services ORDER BY price ASC")) LiveData<List<ServiceEntity>> getSortedByPrice();
-    @Query("SELECT * FROM services ORDER BY price DESC") LiveData<List<ServiceEntity>> getSortedByPriceDesc();
+    // Filtering by category label
+    @Query("SELECT * FROM services WHERE service = :categoryLabel")
+    LiveData<List<ServiceEntity>> getSortedCategory(String categoryLabel);
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertService(ServiceEntity service);
+    // Sorting by rating
+    @Query("SELECT * FROM services ORDER BY rating ASC")
+    LiveData<List<ServiceEntity>> getSortedByRating();
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertAll(List<ServiceEntity> services);
+    @Query("SELECT * FROM services ORDER BY rating DESC")
+    LiveData<List<ServiceEntity>> getSortedByRatingDesc();
 
+    // Sorting by reviews
+    @Query("SELECT * FROM services ORDER BY reviews ASC")
+    LiveData<List<ServiceEntity>> getSortedByReviews();
+
+    @Query("SELECT * FROM services ORDER BY reviews DESC")
+    LiveData<List<ServiceEntity>> getSortedByReviewsDesc();
+
+    // Sorting by price
+    @Query("SELECT * FROM services ORDER BY price ASC")
+    LiveData<List<ServiceEntity>> getSortedByPrice();
+
+    @Query("SELECT * FROM services ORDER BY price DESC")
+    LiveData<List<ServiceEntity>> getSortedByPriceDesc();
+
+    // Delete a single service
     @Delete
     void deleteService(ServiceEntity service);
 
+    // Delete all services
     @Query("DELETE FROM services")
     void deleteAllServices();
 }

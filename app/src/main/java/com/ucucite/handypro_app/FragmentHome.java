@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -22,14 +23,17 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
 
+    private ViewModel viewModel;
+    private RecyclerView recyclerView;
+    private ServicesAdapter servicesAdapter;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
     private int currentItem = 0;
-    private ServicesAdapter servicesAdapter;
 
     // Convert dp to pixels
     private int dpToPx(int dp) {
@@ -158,24 +162,13 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        // Set up the RecyclerView for Home Recommendations Services
-        RecyclerView recRecyclerView = view.findViewById(R.id.Home_Recc_RecyclerView);
-        List<ServicesItem> servicesItems = ServiceDataList.getServicesItems();
-        servicesAdapter = new ServicesAdapter(servicesItems);
+        // Set up the RecyclerView
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+        recyclerView = view.findViewById(R.id.Home_Services_RecyclerView);
+        servicesAdapter = new ServicesAdapter();
+        recyclerView.setAdapter(servicesAdapter);
 
-        recRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recRecyclerView.setAdapter(servicesAdapter);
-
-        // Set up the RecyclerView for Home Categories for Services
-        RecyclerView categoriesRecyclerView = view.findViewById(R.id.Home_Layout_RecyclerView);
-        List<CategoryServicesItem> categoryServicesItems = ServiceDataList.getCategoryServicesItems();
-        categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems, categoryLabel -> {
-            List<ServicesItem> filteredCategoryItems = ServiceDataList.getSortedCategory(categoryLabel);
-            servicesAdapter.updateData(filteredCategoryItems);
-        });
-        categoriesRecyclerView.setAdapter(categoryServicesAdapter);
+        viewModel.getAllServices().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
     }
 
     // Clean up the handler callbacks when the view is destroyed to prevent memory leaks

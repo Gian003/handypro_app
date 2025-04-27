@@ -4,27 +4,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentExplore extends Fragment {
 
     private ServicesAdapter servicesAdapter;
-    private CategoryServicesAdapter categoryServicesAdapter;
-    private void showFilterDialog () {
+    private ViewModel viewModel;
+    private void showFilterDialog (ViewModel viewModel) {
         BottomSheetDialog dialog = new BottomSheetDialog(requireContext());
         View view = LayoutInflater.from(getContext()).inflate(R.layout.bottom_sheet_filter, null);
         dialog.setContentView(view);
@@ -35,26 +34,22 @@ public class FragmentExplore extends Fragment {
         applyButton.setOnClickListener(v -> {
             int selectedId = radioGroup.getCheckedRadioButtonId();
 
-            List<ServicesItem> filteredList = ServiceDataList.getServicesItems();
-            List<CategoryServicesItem> categoryFilteredList = ServiceDataList.getCategoryServicesItems();
-
-            if (selectedId == R.id.radioButton_general) {
-                filteredList = ServiceDataList.getServicesItems();
-            } else if (selectedId == R.id.radioButton_category) {
-                categoryFilteredList = ServiceDataList.getCategoryServicesItems();
+            if (selectedId == R.id.radioButton_category) {
+                this.viewModel.getSortedCategory("categoryLabel").observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             } else if (selectedId == R.id.radioButton_ratingLtH) {
-                filteredList = ServiceDataList.getSortedRatingLtH();
+                this.viewModel.getSortedByRating().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             } else if (selectedId == R.id.radioButton_ratingHtL) {
-                filteredList = ServiceDataList.getSortedRatingHtL();
+                this.viewModel.getSortedByRatingDesc().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             } else if (selectedId == R.id.radioButton_reviews) {
-                filteredList = ServiceDataList.getSortedReviews();
+                this.viewModel.getSortedByReviews().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             } else if (selectedId == R.id.radioButton_priceLtH) {
-                filteredList = ServiceDataList.getSortedPriceLtH();
+                this.viewModel.getSortedByPrice().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             } else if (selectedId == R.id.radioButton_priceHtL) {
-                filteredList = ServiceDataList.getSortedPriceHtL();
+                this.viewModel.getSortedByPriceDesc().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
+            } else {
+                this.viewModel.getAllServices().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
             }
 
-            servicesAdapter.filterList(filteredList);
             dialog.dismiss();
         });
         dialog.show();
@@ -69,23 +64,30 @@ public class FragmentExplore extends Fragment {
     }
 
     @Override
-    public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Button for filters
         MaterialButton filterButton = view.findViewById(R.id.Explore_FilterButton);
-        filterButton.setOnClickListener(v -> showFilterDialog());
+        filterButton.setOnClickListener(v -> showFilterDialog(viewModel));
 
+        // Main services RecyclerView
         RecyclerView servicesRecyclerView = view.findViewById(R.id.Explore_RecyclerView);
-
-        // Initialize Services Adapter
-        servicesAdapter = new ServicesAdapter(ServiceDataList.getServicesItems());
+        servicesAdapter = new ServicesAdapter();
         servicesRecyclerView.setAdapter(servicesAdapter);
+        servicesRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        // Category filter logic
-        categoryServicesAdapter = new CategoryServicesAdapter(
-                ServiceDataList.getCategoryServicesItems(),
-                categoryLabel -> {
-                    List<ServicesItem> filteredCategoryItems = ServiceDataList.getSortedCategory(categoryLabel);
-                    servicesAdapter.filterList(filteredCategoryItems);
-                }
-        );
+        // ViewModel
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+        viewModel.getAllServices().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
+
+        // Now for the category icons RecyclerView
+        List<CategoryServicesItem> categoryServicesItems = ServiceDataList.getCategoryServicesItems();
+        RecyclerView categoryRecyclerView = view.findViewById(R.id.Home_Category_RecyclerView);
+        CategoryServicesAdapter categoryServicesAdapter = new CategoryServicesAdapter(categoryServicesItems, categoryLabel -> {
+            viewModel.getSortedCategory(categoryLabel).observe(getViewLifecycleOwner(), servicesAdapter::submitList);
+        });
+        categoryRecyclerView.setAdapter(categoryServicesAdapter);
+        categoryRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 }

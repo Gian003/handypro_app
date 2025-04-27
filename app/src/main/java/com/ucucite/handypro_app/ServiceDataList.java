@@ -23,40 +23,4 @@ public class ServiceDataList {
         categoryServicesItems.add(new CategoryServicesItem(R.drawable.home_services_ic_electrician, "Electrician"));
         return categoryServicesItems;
     }
-
-    private static List<ServicesItem> getSortedList(Comparator<ServicesItem> comparator) {
-        List<ServicesItem> sortedList = new ArrayList<>(getServicesItems());
-        sortedList.sort(comparator);
-        return sortedList;
-    }
-
-    public static List<ServicesItem> getSortedCategory(String categoryLabel) {
-        List<ServicesItem> sortedList = new ArrayList<>();
-        for (ServicesItem item : getServicesItems()) {
-            if (item.getService().equalsIgnoreCase(categoryLabel)) {
-                sortedList.add(item);
-            }
-        }
-        return sortedList;
-    }
-
-    public static List<ServicesItem> getSortedRatingLtH() {
-        return getSortedList(Comparator.comparingDouble(ServicesItem::getRating));
-    }
-
-    public static List<ServicesItem> getSortedRatingHtL() {
-        return getSortedList(Comparator.comparingDouble(ServicesItem::getRating).reversed());
-    }
-
-    public static List<ServicesItem> getSortedReviews() {
-        return getSortedList(Comparator.comparingInt(ServicesItem::getReviews));
-    }
-
-    public static List<ServicesItem> getSortedPriceLtH() {
-        return getSortedList(Comparator.comparingDouble(ServicesItem::getPrice));
-    }
-
-    public static List<ServicesItem> getSortedPriceHtL() {
-        return getSortedList(Comparator.comparingDouble(ServicesItem::getPrice).reversed());
-    }
 }

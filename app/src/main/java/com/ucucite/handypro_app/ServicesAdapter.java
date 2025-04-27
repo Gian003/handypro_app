@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServicesAdapter extends ListAdapter<ServiceEntity, ServicesAdapter.VH> {
@@ -28,6 +29,7 @@ public class ServicesAdapter extends ListAdapter<ServiceEntity, ServicesAdapter.
             }
         });
     }
+
 
     public static class VH extends RecyclerView.ViewHolder {
         ImageView image;
