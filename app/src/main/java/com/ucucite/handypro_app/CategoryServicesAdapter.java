@@ -13,15 +13,15 @@ import java.util.List;
 
 public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServicesAdapter.ViewHolder> {
 
-    private List<CategoryServicesItem> categoryServicesItems;
+    private final List<CategoryEntity> categoryList;
     private final OnCategoryClickListener listener;
 
     public interface OnCategoryClickListener {
         void onCategoryClick(String categoryLabel);
     }
 
-    public CategoryServicesAdapter(List<CategoryServicesItem> categoryServicesItems, OnCategoryClickListener listener) {
-        this.categoryServicesItems = categoryServicesItems;
+    public CategoryServicesAdapter(List<CategoryEntity> categoryList, OnCategoryClickListener listener) {
+        this.categoryList = categoryList;
         this.listener = listener;
     }
 
@@ -34,41 +34,28 @@ public class CategoryServicesAdapter extends RecyclerView.Adapter<CategoryServic
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        CategoryServicesItem item = categoryServicesItems.get(position);
-        holder.categoryIcon.setImageResource(item.getImage());
+        CategoryEntity categoryItem = categoryList.get(position);
+        holder.categoryIcon.setImageResource(categoryItem.image);
+        holder.categoryLabel.setText(categoryItem.label);
 
-        holder.categoryIcon.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onCategoryClick(item.getLabel());
-            }
+        holder.itemView.setOnClickListener(v -> {
+                listener.onCategoryClick(categoryItem.label);
         });
     }
 
     @Override
     public int getItemCount() {
-        return categoryServicesItems.size();
+        return categoryList == null ? 0 : categoryList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView categoryIcon;
         TextView categoryLabel;
 
-        ViewHolder (View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             categoryIcon = itemView.findViewById(R.id.category_icon);
             categoryLabel = itemView.findViewById(R.id.category_label);
-
-            itemView.setOnClickListener(v -> {
-                int position = getBindingAdapterPosition();
-                if (position != RecyclerView.NO_POSITION && listener != null) {
-                    listener.onCategoryClick(categoryServicesItems.get(position).getLabel());
-                }
-            });
-        }
-
-        void bind(CategoryServicesItem item) {
-            categoryIcon.setImageResource(item.getImage());
-            categoryLabel.setText(item.getLabel());
         }
     }
 }

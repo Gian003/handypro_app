@@ -32,20 +32,22 @@ android {
 }
 
 dependencies {
+    implementation(libs.appcompat)
+    implementation(libs.constraintlayout)
+    implementation(libs.core.ktx)
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.material)
+    implementation(libs.recyclerview)
+    implementation(libs.viewpager2)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.common)
+    implementation(libs.room.ktx)
+    annotationProcessor(libs.room.compiler)
+
     implementation(libs.lombok)
     annotationProcessor(libs.lombok)
-    implementation(libs.androidx.room.database)
-    implementation(libs.androidx.room.common)
-    implementation(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.runtime.android)
-    annotationProcessor(libs.room.compiler)
-    implementation(libs.room.runtime)
-    implementation(libs.lifecycle.livedata)
-    implementation(libs.material.v1110)
-    implementation(libs.viewpager2)
-    implementation(libs.appcompat)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

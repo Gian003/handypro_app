@@ -30,7 +30,6 @@ public class ServicesAdapter extends ListAdapter<ServiceEntity, ServicesAdapter.
         });
     }
 
-
     public static class VH extends RecyclerView.ViewHolder {
         ImageView image;
         TextView service;

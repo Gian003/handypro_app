@@ -9,20 +9,12 @@ espressoCore = "3.6.1"
 lifecycleLivedata = "2.8.7"
 lombok = "1.18.30"
 material = "1.12.0"
-materialVersion = "1.12.0"
 activity = "1.10.1"
 recyclerview = "1.4.0"
-roomCompiler = "2.5.2"
-roomDatabaseKtx = "2.5.2"
-roomRuntime = "2.6.1"
+roomVersion = "2.7.1"
 viewpager2 = "1.1.0"
-roomCompilerVersion = "2.7.1"
-roomRuntimeAndroid = "2.7.1"
 
 [libraries]
-androidx-room-common = { module = "androidx.room:room-common", version.ref = "roomCompilerVersion" }
-androidx-room-database = { module = "androidx.room:room-Database" }
-androidx-room-database-ktx = { module = "androidx.room:room-database-ktx", version.ref = "roomDatabaseKtx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
@@ -32,13 +24,15 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycleLivedata" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
-material-v1110 = { module = "com.google.android.material:material", version.ref = "material" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
-room-compiler = { module = "anroidx.room:room-compiler", version.ref = "roomCompiler" }
-room-runtime = { module = "anroidx.room:room-runtime", version.ref = "roomRuntime" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompilerVersion" }
-androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
+
+# Room libraries
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+room-common = { module = "androidx.room:room-common", version.ref = "roomVersion" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
