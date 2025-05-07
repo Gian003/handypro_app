@@ -1,6 +1,7 @@
 package com.ucucite.handypro_app;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -20,16 +22,15 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
 
-    private HandyProViewModel handyProViewModel;
-    private RecyclerView recyclerView;
-    private ServicesAdapter servicesAdapter;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
     private int currentItem = 0;
+    private final List<Carouselitem> carouselItems = new ArrayList<>();
 
     // Convert dp to pixels
     private int dpToPx(int dp) {
@@ -60,7 +61,7 @@ public class FragmentHome extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (runnable != null) {
+        if (runnable != null && !carouselItems.isEmpty()) {
             handler.post(runnable);
         }
     }
@@ -81,7 +82,6 @@ public class FragmentHome extends Fragment {
         ViewPager2 viewPager = view.findViewById(R.id.Home_ViewPager);
         TabLayout tabLayout = view.findViewById(R.id.Home_TabLayout);
 
-        List<Carouselitem> carouselItems = new ArrayList<>();
         carouselItems.add(new Carouselitem(R.drawable.offers_plumbing, "20% off", "Plumbing Service"));
         carouselItems.add(new Carouselitem(R.drawable.offers_house_cleaning, "15% off", "House Cleaning Service"));
         carouselItems.add(new Carouselitem(R.drawable.offers_appliance_repair, "30% off", "Appliance Repair Service"));
@@ -100,10 +100,6 @@ public class FragmentHome extends Fragment {
                     currentItem = 0;
                 }
                 viewPager.setCurrentItem(currentItem, true);
-                TabLayout.Tab tab = tabLayout.getTabAt(currentItem);
-                if (tab != null) {
-                    tab.select();
-                }
                 currentItem++;
                 handler.postDelayed(this, 3000);
             }
@@ -158,12 +154,36 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        // Set up the RecyclerView
-        handyProViewModel = new ViewModelProvider(this).get(HandyProViewModel.class);
-        recyclerView = view.findViewById(R.id.Home_Services_RecyclerView);
-        servicesAdapter = new ServicesAdapter();
-        recyclerView.setAdapter(servicesAdapter);
+        Context context = getContext();
+        if (context != null) {
+           LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        }
 
+        HandyProViewModel handyProViewModel = new ViewModelProvider(this).get(HandyProViewModel.class);
+        ServicesAdapter servicesAdapter = new ServicesAdapter();
+
+        // Set up Category RecyclerView
+        RecyclerView categoryRecyclerView = view.findViewById(R.id.Home_Category_RecyclerView);
+        LinearLayoutManager categoryLinearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        CategoryServicesAdapter categoryAdapter = new CategoryServicesAdapter(categoryLabel -> {
+            // Update the selected category in the ViewModel
+            handyProViewModel.setSelectedCategory(categoryLabel);
+
+            // Observe filtered services based on the selected category
+            handyProViewModel.getSortedCategory(categoryLabel).observe(getViewLifecycleOwner(), servicesAdapter::submitList);
+        });
+        categoryRecyclerView.setAdapter(categoryAdapter);
+        categoryRecyclerView.setLayoutManager(categoryLinearLayoutManager);
+
+        // Set up Services RecyclerView
+        RecyclerView servicesRecyclerView = view.findViewById(R.id.Home_Services_RecyclerView);
+        servicesRecyclerView.setAdapter(servicesAdapter);
+        servicesRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        // Observe all categories
+        handyProViewModel.getAllCategories().observe(getViewLifecycleOwner(), categoryAdapter::submitList);
+
+        // Observe all services initially
         handyProViewModel.getAllServices().observe(getViewLifecycleOwner(), servicesAdapter::submitList);
     }
 

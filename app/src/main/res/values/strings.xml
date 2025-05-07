@@ -91,4 +91,10 @@
     <string name="Explore_radioButton_priceLtH">Price: Low to High</string>
     <string name="Explore_radioButton_priceHtL">Price: High to Low</string>
     <string name="Explore_bottom_sheet_apply">Apply</string>
+    
+    <!-- Chat Fragment -->
+    <string name="Chat_input">Send a message…</string>
+    <string name="Chat_emoji_icon">Emoji Icon</string>
+    <string name="Chat_image_icon">Image Icon</string>
+    <string name="Chat_send_icon">Send Icon</string>
 </resources>

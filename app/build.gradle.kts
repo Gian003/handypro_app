@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.common)
     implementation(libs.room.ktx)
+    implementation(libs.activity)
     annotationProcessor(libs.room.compiler)
 
     implementation(libs.lombok)

@@ -31,6 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     "handypro_database"
                             )
                             .addCallback(roomCallback)
+                            .fallbackToDestructiveMigrationOnDowngrade(false)
                             .build();
                 }
             }
@@ -55,7 +56,7 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
-    private static List<ServiceEntity> getDummyServices() {
+    static List<ServiceEntity> getDummyServices() {
         return Arrays.asList(
                 new ServiceEntity(R.drawable.worker_housekeeping, "Housekeeping", "Jack Hinshelwood", 4.5, 120, 50.0, true),
                 new ServiceEntity(R.drawable.worker_electrician, "Electrician", "Carlos Baleba", 4.8, 200, 75.0, false),
@@ -64,7 +65,7 @@ public abstract class AppDatabase extends RoomDatabase {
         );
     }
 
-    private static List<CategoryEntity> getDummyCategories() {
+    static List<CategoryEntity> getDummyCategories() {
         return Arrays.asList(
                 new CategoryEntity(R.drawable.home_services_ic_housekeeping, "Housekeeping"),
                 new CategoryEntity(R.drawable.home_services_ic_plumbing, "Plumbing"),
